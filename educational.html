@@ -1,0 +1,59 @@
+<!--คำสั่ง
+1. สร้างไฟล์ educational.hmtl
+2. ใส่เนื้อหาเกี่ยวกับประวัติการศึกษาตัวเองในหน้าeducational.hmtl โดย ใช้ความรู้ที่ได้จากเรียนใน WEEK1-4 มาใช้ ดังนี้
+   2.1 การแทรกลิงก์ไปเว็บไซต์อื่นๆ การแทรกรูปภาพ การแทรกตาราง หรืออื่นๆ ตามความเหมาะสม
+   2.2 สร้างลิงก์ให้แต่ละหน้าสามารถกดไปหากันได้ทุกหน้า
+   2.3 ตั้งชื่อ title ว่า ประวัติการศึกษาของฉัน
+   2.4 หัวข้อในหน้าเว็บใช้ขนาด h1 ว่า ประวัติการศึกษาของฉัน
+3. ตกแต่งให้สวยงามโดยให้ CSS แบบใดก็ได้ตามที่สอนไป inline/
+embedded/external (ทุกหน้าให้สวยงามไม่ว่าจะเป็น index / aboutme /  educational )-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+<img src="IMG_20250610_092243.jpg" alt="ภู" class="floating-portrait">
+    <title>ประวัติการศึกษาของฉัน</title>
+</head>
+<body>
+    <h1 style="text-align: center;">ประวัติการศึกษาของฉัน</h1>
+    <table border="2" style="margin: 35px auto;">
+        <tr>
+            <th>ระดับชั้นการศึกษา</th>
+            <th>โรงเรียน</th>
+            <th>ปีการศึกษาที่จบ</th>
+            <td>เว็บไซต์แต่ละโรงเรียน</td>
+            
+        </tr>
+        <tr>
+            <td>ระดับประถมศึกษา</td>
+            <td>โรงเรียนอนุบาลแพร่</td>
+            <td>พ.ศ.2563</td>
+            <th><a href="https://anubanphrae.ac.th/web"target="_blank">anubanphrae.ac.th</a></th>
+        </tr>
+        <tr>
+            <td>ระดับมัธยมศึกษาตอนต้น</td>
+            <td>โรงเรียนสุวรรณรังสฤษดิ์วิทยาลัย</td>
+            <td>พ.ศ.2566</td>
+            <th><a href="http://www.suwanrungsarit.ac.th/site/"target="_blank">suwanrungsarit.ac.th</a></th>
+        </tr>
+        <tr>
+            <td>ระดับประกาศนัยบัตรวิชาชีพ</td>
+            <td>วิทยาลัยเทคนิคเพชรบุรี</td>
+            <td>ปัจจุบันกำลังศึกษาอยู่</td>
+            <td>เว็บไซต์กำลังปิดปรับปรุง</td>
+        </tr>
+    </table>
+    <img src="IMG_20250610_092243.jpg" width="125" height="200"/>
+
+
+
+
+
+    <a href="index.html"><h2>จิ้มเพื่อไปหน้า Index</h2></a>
+    <a href="aboutme.html"><h2>จิ้มเพื่อไปหน้า aboutme</h2></a>
+
+    
+</body>
+</html>

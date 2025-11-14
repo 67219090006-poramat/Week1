@@ -1,0 +1,351 @@
+/* ==================================================
+   🌌 MIDNIGHT STUDIO — Premium Theme for Poramat
+   Designed for: index.html | aboutme.html | educational.html
+   ================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&family=Orbitron:wght@500;700&display=swap');
+
+:root {
+    --bg-gradient: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    --card-bg: rgba(30, 25, 55, 0.65);
+    --card-border: rgba(255, 255, 255, 0.1);
+    --glow-primary: rgba(0, 219, 222, 0.5);
+    --glow-accent: rgba(255, 0, 204, 0.4);
+    --text-primary: #f0f4ff;
+    --text-secondary: #a9b7d0;
+    --accent: #ff00cc;
+    --neon: #00dbde;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--bg-gradient);
+    color: var(--text-primary);
+    font-family: 'Sarabun', sans-serif;
+    min-height: 100vh;
+    padding-bottom: 80px;
+    overflow-x: hidden;
+}
+
+/* —— Floating Dock (Bottom Nav) —— */
+.dock {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 16px;
+    background: rgba(15, 12, 41, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 12px 20px;
+    border-radius: 50px;
+    border: 1px solid var(--card-border);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4),
+                0 0 20px var(--glow-primary);
+    z-index: 1000;
+}
+
+.dock a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    padding: 8px 12px;
+    border-radius: 16px;
+}
+
+.dock a:hover {
+    color: white;
+    transform: translateY(-4px);
+    text-shadow: 0 0 10px var(--neon);
+}
+
+.dock a.active {
+    color: var(--neon);
+    background: rgba(0, 219, 222, 0.15);
+}
+
+.dock .icon {
+    font-size: 1.4rem;
+    margin-bottom: 4px;
+    transition: transform 0.3s ease;
+}
+
+.dock a:hover .icon {
+    transform: scale(1.2) rotate(5deg);
+}
+
+/* —— Main Container —— */
+.container {
+    max-width: 850px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.page-title {
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 2.8rem;
+    margin: 2rem 0 2.5rem;
+    background: linear-gradient(90deg, #ff00cc, #00dbde);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 2px 10px rgba(0, 219, 222, 0.2);
+    position: relative;
+}
+
+.page-title::after {
+    content: '✨';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.4rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-10px); }
+}
+
+/* —— Glass Cards —— */
+.card {
+    background: var(--card-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 28px;
+    margin-bottom: 30px;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 0 10px rgba(255, 255, 255, 0.05);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 
+        0 15px 40px rgba(0, 0, 0, 0.4),
+        0 0 25px var(--glow-primary),
+        inset 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+/* —— Profile Image —— */
+.profile-pic {
+    display: block;
+    margin: 0 auto 24px;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--neon);
+    box-shadow: 
+        0 0 0 4px rgba(0, 219, 222, 0.2),
+        0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: all 0.5s ease;
+}
+
+.profile-pic:hover {
+    transform: rotate(5deg) scale(1.05);
+    box-shadow: 
+        0 0 0 8px rgba(0, 219, 222, 0.4),
+        0 0 30px var(--glow-primary),
+        0 15px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* —— Typography —— */
+h2 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--neon);
+    margin: 1.8rem 0 1rem;
+    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+h2::before {
+    content: '•';
+    color: var(--accent);
+    font-size: 1.8rem;
+}
+
+p, li {
+    margin: 0.8rem 0;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+.highlight {
+    background: rgba(255, 0, 204, 0.1);
+    border-left: 4px solid var(--accent);
+    padding: 18px;
+    border-radius: 0 12px 12px 0;
+    margin: 24px 0;
+    font-style: italic;
+    position: relative;
+    overflow: hidden;
+}
+
+.highlight::before {
+    content: '💡';
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    font-size: 1.2rem;
+}
+
+/* —— Table —— */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    border-radius: 16px;
+    overflow: hidden;
+    background: rgba(20, 15, 45, 0.4);
+}
+
+th, td {
+    padding: 16px;
+    text-align: center;
+    border-bottom: 1px solid var(--card-border);
+    transition: all 0.3s ease;
+}
+
+th {
+    background: rgba(0, 219, 222, 0.15);
+    color: white;
+    font-weight: 700;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:hover {
+    background: rgba(0, 219, 222, 0.08);
+    transform: scale(1.01);
+}
+
+/* —— Links —— */
+a {
+    color: var(--neon);
+    text-decoration: none;
+    position: relative;
+    padding: 2px 4px;
+}
+
+a:hover {
+    text-shadow: 0 0 12px var(--glow-primary);
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--neon);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* —— Footer —— */
+footer {
+    text-align: center;
+    margin-top: 3rem;
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+/* 🔮 Subtle Animated Background Dots */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 10% 20%, rgba(255,0,204,0.1) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(0,219,222,0.1) 0%, transparent 20%),
+        radial-gradient(circle at 50% 50%, rgba(106, 90, 205, 0.05) 0%, transparent 30%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* 📱 Responsive */
+@media (max-width: 600px) {
+    .page-title { font-size: 2.2rem; }
+    .dock { 
+        flex-wrap: wrap;
+        width: 90%;
+        justify-content: center;
+    }
+    .card { padding: 20px 16px; }
+}
+/* 🌠 Floating Portrait — รูปคุณภูลอยทั่วหน้าจอ */
+.floating-portrait {
+    position: fixed;
+    z-index: -1; /* อยู่หลังเนื้อหาทั้งหมด */
+    pointer-events: none; /* คลิกผ่านได้ */
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 
+        0 0 0 4px rgba(255, 0, 204, 0.3),
+        0 0 20px rgba(0, 219, 222, 0.4);
+    opacity: 0.92;
+    /* เริ่มจากมุมซ้ายล่าง */
+    left: 5%;
+    bottom: 10%;
+    animation: 
+        floatPath 45s cubic-bezier(0.34, 1.56, 0.64, 1) infinite,
+        gentleRotate 20s linear infinite;
+}
+
+/* เส้นทางการลอย — เปลี่ยนค่า % ตามความชอบได้ */
+@keyframes floatPath {
+    0% { transform: translate(0, 0) scale(1); }
+    15% { transform: translate(30vw, -20vh) scale(1.05); }
+    30% { transform: translate(60vw, -10vh) scale(1); }
+    45% { transform: translate(80vw, 30vh) scale(1.02); }
+    60% { transform: translate(40vw, 50vh) scale(1); }
+    75% { transform: translate(10vw, 40vh) scale(1.03); }
+    90% { transform: translate(-10vw, 20vh) scale(1); }
+    100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes gentleRotate {
+    0% { rotate: 0deg; }
+    100% { rotate: 360deg; }
+}
+
+/* เมื่อ hover หน้าจอ — หยุดลอยชั่วคราว (เพื่อประสบการณ์ผู้ใช้) */
+body:hover .floating-portrait {
+    animation-play-state: paused;
+}
