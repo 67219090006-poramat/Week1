@@ -349,3 +349,177 @@ body::before {
 body:hover .floating-portrait {
     animation-play-state: paused;
 }
+/* Responsive modern style for Poramat - replace your style.css with this */
+/* Uses rem-based sizing, responsive images, table wrapper, and mobile tweaks */
+
+@import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&family=Orbitron:wght@500;700&display=swap');
+
+:root{
+  --bg-gradient: linear-gradient(135deg,#0f0c29,#302b63,#24243e);
+  --card-bg: rgba(30,25,55,0.65);
+  --card-border: rgba(255,255,255,0.08);
+  --text-primary: #f0f4ff;
+  --text-secondary: #a9b7d0;
+  --accent: #ff00cc;
+  --neon: #00dbde;
+  --max-container: 1100px;
+  --gutter: 1rem;
+  font-size: 16px;
+}
+
+/* Reset */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  min-height:100vh;
+  background:var(--bg-gradient);
+  color:var(--text-primary);
+  font-family:'Sarabun',system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  padding: 1rem;
+  overflow-x:hidden;
+}
+
+/* Container */
+.container{
+  max-width:var(--max-container);
+  margin:0 auto;
+  padding: 1.25rem;
+}
+
+/* Page title */
+.page-title{
+  font-family:'Orbitron',sans-serif;
+  font-weight:700;
+  font-size:clamp(1.6rem, 3.0vw, 2.4rem);
+  text-align:center;
+  margin:1.5rem 0;
+  background: linear-gradient(90deg,#ff00cc,#00dbde);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+/* Card base */
+.card{
+  background:var(--card-bg);
+  border:1px solid var(--card-border);
+  border-radius:14px;
+  padding:1.25rem;
+  margin-bottom:1.25rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+}
+
+/* Profile image (responsive) */
+.profile-pic{
+  display:block;
+  margin:0 auto 1rem;
+  width:clamp(96px, 22vw, 180px);
+  height:clamp(96px, 22vw, 180px);
+  object-fit:cover;
+  border-radius:50%;
+  border:3px solid var(--neon);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* links / buttons */
+a.btn{
+  display:inline-block;
+  margin-top:1rem;
+  padding:.6rem 1rem;
+  background:linear-gradient(90deg,var(--neon),var(--accent));
+  color:#fff;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:600;
+}
+
+/* Text & lists */
+p, li { color:var(--text-secondary); font-size:clamp(.95rem,1.6vw,1.05rem); margin:.6rem 0; }
+ul, ol { margin-left:1.2rem; margin-bottom:1rem; }
+
+/* Table wrapper to enable horizontal scroll on small screens */
+.table-wrap{
+  width:100%;
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+  margin:1rem 0;
+}
+table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:420px; /* allow scroll on small screens */
+}
+th, td{
+  padding:12px 10px;
+  text-align:center;
+  border-bottom:1px solid var(--card-border);
+  color:var(--text-primary);
+}
+th{
+  background: rgba(0,219,222,0.12);
+  font-weight:700;
+  font-family:'Orbitron',sans-serif;
+}
+
+/* Dock (floating bottom nav) - responsive */
+.dock{
+  position:fixed;
+  left:50%;
+  transform:translateX(-50%);
+  bottom:20px;
+  display:flex;
+  gap:.6rem;
+  padding:.6rem .8rem;
+  background:rgba(15,12,41,0.75);
+  border-radius:40px;
+  border:1px solid var(--card-border);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  z-index:999;
+}
+.dock a{ color:var(--text-secondary); text-decoration:none; font-size:.85rem; padding:.4rem .6rem; border-radius:12px; display:flex; align-items:center; gap:.4rem; }
+.dock a.active{ color:var(--neon); background:rgba(0,219,222,0.08); }
+
+/* Floating portrait (decorative) */
+/* hidden on small screens so it doesn't cover content */
+.floating-portrait{
+  position:fixed;
+  z-index:0;
+  pointer-events:none;
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  object-fit:cover;
+  left:5%;
+  bottom:8%;
+  box-shadow:0 0 20px rgba(0,219,222,0.25);
+  opacity:.95;
+  transition:opacity .3s ease, transform .6s ease;
+}
+@media (max-width:560px){
+  .floating-portrait{ display:none; } /* hide on small devices */
+}
+
+/* small helpers */
+.highlight{ background: rgba(255,0,204,0.06); padding: .8rem; border-left:4px solid var(--accent); border-radius:8px; color:var(--text-secondary); }
+.page-note{ font-size:.9rem; color:#9aa6be; text-align:center; margin-top:1rem; }
+
+/* Accessibility: focus states */
+a:focus, button:focus { outline:3px solid rgba(0,219,222,0.25); outline-offset:3px; }
+
+/* Responsive layout tweaks */
+@media (min-width:900px){
+  .two-col{ display:grid; grid-template-columns: 1fr 1fr; gap:1.25rem; align-items:start; }
+}
+
+/* Smaller screens adjustments */
+@media (max-width:600px){
+  body{ padding: .5rem; }
+  .container{ padding: .6rem; }
+  .card{ padding:.9rem; border-radius:12px; }
+  .dock{ bottom:14px; padding:.5rem .6rem; gap:.4rem; width:calc(100% - 2rem); left:50%; transform:translateX(-50%); }
+  .page-title{ font-size:1.6rem; }
+  table{ min-width:300px; }
+}
